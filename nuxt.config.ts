@@ -1,6 +1,7 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-14',
+  ssr: false,
   app: {
     head: {
       htmlAttrs: {
@@ -70,7 +71,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/']
-    }
+    },
+    preset: 'github-pages'
   },
   // 성능 최적화
   experimental: {
