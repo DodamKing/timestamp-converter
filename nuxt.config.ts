@@ -70,13 +70,14 @@ export default defineNuxtConfig({
   ],
   nitro: {
     prerender: {
-      routes: ['/']
+      routes: ['/', 'timestamp', '/utc']
     },
     preset: 'github-pages'
   },
   // 성능 최적화
   experimental: {
     payloadExtraction: false,
-    renderJsonPayloads: true
+    renderJsonPayloads: true,
+    appManifest: false,
   }
 })
