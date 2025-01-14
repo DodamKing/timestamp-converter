@@ -22,6 +22,5 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "gh-pages": "^6.3.0"
-  },
-  "homepage": "https://dodamking.github.io/timestamp-converter/"
+  }
 }
