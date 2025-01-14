@@ -1,58 +1,62 @@
 <template>
     <div class="space-y-8">
         <!-- 페이지 헤더 -->
-        <div class="text-center space-y-3">
-            <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+        <div class="text-center space-y-2 sm:space-y-3">
+            <h1
+                class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
                 Unix Timestamp 변환
             </h1>
-            <p class="mt-2 text-gray-700 text-lg">
+            <p class="mt-2 text-gray-700 text-base sm:text-lg">
                 현재 시간을 Timestamp로 변환하거나, Timestamp를 읽기 쉬운 날짜로 변환하세요
             </p>
         </div>
 
         <!-- 현재 시간 카드 -->
-        <div class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-2xl shadow-lg text-white p-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="backdrop-blur-sm bg-white/10 rounded-xl p-6">
-                    <div class="flex items-center space-x-3 mb-3">
-                        <svg class="w-6 h-6 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div
+            class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-xl sm:rounded-2xl shadow-lg text-white p-4 sm:p-8">
+            <div class="grid grid-cols-1 gap-4 sm:gap-8">
+                <div class="backdrop-blur-sm bg-white/10 rounded-lg sm:rounded-xl p-4 sm:p-6">
+                    <div class="flex items-center space-x-2 sm:space-x-3 mb-2 sm:mb-3">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <circle cx="12" cy="12" r="10" stroke-width="2" />
                             <path stroke-width="2" d="M12 6v6l4 4" />
                         </svg>
-                        <span class="font-semibold">현재 시간</span>
+                        <span class="font-semibold text-sm sm:text-base">현재 시간</span>
                     </div>
-                    <p class="text-2xl font-bold">{{ currentDateTime }}</p>
+                    <p class="text-xl sm:text-2xl font-bold">{{ currentDateTime }}</p>
                 </div>
-                <div class="backdrop-blur-sm bg-white/10 rounded-xl p-6">
-                    <div class="flex items-center space-x-3 mb-3">
-                        <svg class="w-6 h-6 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="backdrop-blur-sm bg-white/10 rounded-lg sm:rounded-xl p-4 sm:p-6">
+                    <div class="flex items-center space-x-2 sm:space-x-3 mb-2 sm:mb-3">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2" />
                         </svg>
-                        <span class="font-semibold">현재 Timestamp</span>
+                        <span class="font-semibold text-sm sm:text-base">현재 Timestamp</span>
                     </div>
-                    <p class="text-2xl font-bold font-mono">{{ currentTimestamp }}</p>
+                    <p class="text-xl sm:text-2xl font-bold font-mono">{{ currentTimestamp }}</p>
                 </div>
             </div>
         </div>
 
         <!-- 변환 도구 섹션 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
             <!-- Timestamp → 날짜 변환 -->
-            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6">
+                <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
                     <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Timestamp를 날짜로 변환
                 </h2>
-                <div class="space-y-4">
-                    <div class="flex gap-3">
+                <div class="space-y-3 sm:space-y-4">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
                         <input v-model="timestampInput" type="number" placeholder="Timestamp를 입력하세요"
-                            class="flex-1 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm" />
+                            class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm" />
                         <button @click="convertTimestampToDate"
-                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
+                            class="w-full sm:w-auto px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
                             변환
                         </button>
                     </div>
@@ -62,29 +66,29 @@
                         leave-active-class="transition-all duration-300 ease-in"
                         leave-from-class="opacity-100 transform translate-y-0"
                         leave-to-class="opacity-0 transform translate-y-2">
-                        <div v-if="timestampResult" class="bg-gray-50 rounded-lg p-4">
-                            <p class="text-sm text-gray-500 mb-1">변환 결과</p>
-                            <p class="text-lg font-semibold text-gray-900">{{ timestampResult }}</p>
+                        <div v-if="timestampResult" class="bg-gray-50 rounded-lg p-3 sm:p-4">
+                            <p class="text-xs sm:text-sm text-gray-500 mb-1">변환 결과</p>
+                            <p class="text-base sm:text-lg font-semibold text-gray-900">{{ timestampResult }}</p>
                         </div>
                     </transition>
                 </div>
             </div>
 
             <!-- 날짜 → Timestamp 변환 -->
-            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6">
+                <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
                     <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2" />
+                            d="M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2" />
                     </svg>
                     날짜를 Timestamp로 변환
                 </h2>
-                <div class="space-y-4">
-                    <div class="flex gap-3">
+                <div class="space-y-3 sm:space-y-4">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
                         <input v-model="dateInput" type="datetime-local"
-                            class="flex-1 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm" />
+                            class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm" />
                         <button @click="convertDateToTimestamp"
-                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
+                            class="w-full sm:w-auto px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
                             변환
                         </button>
                     </div>
@@ -94,9 +98,9 @@
                         leave-active-class="transition-all duration-300 ease-in"
                         leave-from-class="opacity-100 transform translate-y-0"
                         leave-to-class="opacity-0 transform translate-y-2">
-                        <div v-if="dateResult" class="bg-gray-50 rounded-lg p-4">
-                            <p class="text-sm text-gray-500 mb-1">변환 결과</p>
-                            <p class="text-lg font-semibold font-mono text-gray-900">{{ dateResult }}</p>
+                        <div v-if="dateResult" class="bg-gray-50 rounded-lg p-3 sm:p-4">
+                            <p class="text-xs sm:text-sm text-gray-500 mb-1">변환 결과</p>
+                            <p class="text-base sm:text-lg font-semibold font-mono text-gray-900">{{ dateResult }}</p>
                         </div>
                     </transition>
                 </div>
@@ -104,23 +108,24 @@
         </div>
 
         <!-- 설명 섹션 -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 prose max-w-none">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 prose max-w-none">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Unix Timestamp란?
             </h2>
-            <div class="text-gray-600 space-y-4">
-                <p>
+            <div class="text-gray-600 space-y-3 sm:space-y-4">
+                <p class="text-sm sm:text-base">
                     Unix Timestamp는 1970년 1월 1일 00:00:00 UTC부터 경과한 시간을 초 단위로 나타낸 값입니다.
                     개발자들이 시간을 다룰 때 자주 사용하며, 데이터베이스나 API에서 시간을 저장하고 전송하는 데 널리 활용됩니다.
                 </p>
 
-                <div class="bg-gray-50 rounded-lg p-4">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">주요 사용 사례</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-600">
+                <div class="bg-gray-50 rounded-lg p-3 sm:p-4">
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2">주요 사용 사례</h3>
+                    <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-600">
                         <li>서버 로그의 시간 기록</li>
                         <li>데이터베이스의 생성일/수정일 저장</li>
                         <li>API 응답의 시간 정보</li>

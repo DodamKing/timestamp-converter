@@ -60,7 +60,7 @@ export default defineNuxtConfig({
         }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/timestamp-converter/favicon.ico' },
       ]
     },
     baseURL: '/timestamp-converter/'
