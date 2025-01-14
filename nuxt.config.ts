@@ -24,6 +24,10 @@ export default defineNuxtConfig({
           name: 'theme-color',
           content: '#ffffff' // 모바일 브라우저 테마 색상
         },
+        {
+          name: 'google-site-verification',
+          content: 'M5zPVsuZLBHNru0lV7VptuxYmewKdSU_ZHvcfqmEisw' // Google Search Console에서 제공받은 코드
+        },
         // Open Graph 태그 보완
         {
           property: 'og:type',
@@ -61,12 +65,28 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/timestamp-converter/favicon.ico' },
+      ],
+      script: [
+        {
+          hid: 'google-analytics',
+          src: `https://www.googletagmanager.com/gtag/js?id=G-N5EV207590`, // 여기에 구글 애널리틱스 추적 ID 넣기
+          async: true
+        },
+        {
+          hid: 'google-analytics-init',
+          children: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-N5EV207590'); // 여기에 추적 ID 넣기
+          `
+        }
       ]
     },
     baseURL: '/timestamp-converter/'
   },
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
   nitro: {
     prerender: {
@@ -79,5 +99,5 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: true,
     appManifest: false,
-  }
+  },
 })
