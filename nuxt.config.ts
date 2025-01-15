@@ -83,7 +83,7 @@ export default defineNuxtConfig({
         }
       ]
     },
-    baseURL: '/timestamp-converter/'
+    // baseURL: '/timestamp-converter/'
   },
   modules: [
     '@nuxtjs/tailwindcss',
