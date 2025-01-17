@@ -90,7 +90,7 @@ export default defineNuxtConfig({
   ],
   nitro: {
     prerender: {
-      routes: ['/', 'timestamp', '/utc']
+      routes: ['/', '/timestamp', '/utc']
     },
     preset: 'github-pages'
   },
