@@ -4,10 +4,15 @@
         <div class="text-center space-y-2 sm:space-y-3">
             <h1
                 class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                Unix Timestamp 변환
+                Unix Timestamp Converter
             </h1>
             <p class="mt-2 text-gray-700 text-base sm:text-lg">
-                현재 시간을 Timestamp로 변환하거나, Timestamp를 읽기 쉬운 날짜로 변환하세요
+                현재 시간을 Timestamp로 변환하거나,<br class="block sm:hidden" />
+                Timestamp를 읽기 쉬운 날짜로 변환하세요
+            </p>
+            <p class="mt-2 text-gray-500 text-sm sm:text-base">
+                (Convert current time to timestamp<br class="block sm:hidden" />
+                or timestamp to readable date)
             </p>
         </div>
 
@@ -22,7 +27,7 @@
                             <circle cx="12" cy="12" r="10" stroke-width="2" />
                             <path stroke-width="2" d="M12 6v6l4 4" />
                         </svg>
-                        <span class="font-semibold text-sm sm:text-base">현재 시간</span>
+                        <span class="font-semibold text-sm sm:text-base">현재 시간 (Current Time)</span>
                     </div>
                     <p class="text-xl sm:text-2xl font-bold">{{ currentDateTime }}</p>
                 </div>
@@ -33,7 +38,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2" />
                         </svg>
-                        <span class="font-semibold text-sm sm:text-base">현재 Timestamp</span>
+                        <span class="font-semibold text-sm sm:text-base">현재 Timestamp (Current Timestamp)</span>
                     </div>
                     <p class="text-xl sm:text-2xl font-bold font-mono">{{ currentTimestamp }}</p>
                 </div>
@@ -49,15 +54,16 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    Timestamp를 날짜로 변환
+                    <span class="block sm:hidden">Timestamp to Date</span>
+                    <span class="hidden sm:block">Timestamp를 날짜로 변환 (Timestamp to Date)</span>
                 </h2>
                 <div class="space-y-3 sm:space-y-4">
                     <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                        <input v-model="timestampInput" type="number" placeholder="Timestamp를 입력하세요"
+                        <input v-model="timestampInput" type="number" placeholder="Timestamp를 입력하세요 (Enter timestamp)"
                             class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm" />
                         <button @click="convertTimestampToDate"
                             class="w-full sm:w-auto px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
-                            변환
+                            Convert
                         </button>
                     </div>
                     <transition enter-active-class="transition-all duration-300 ease-out"
@@ -67,7 +73,7 @@
                         leave-from-class="opacity-100 transform translate-y-0"
                         leave-to-class="opacity-0 transform translate-y-2">
                         <div v-if="timestampResult" class="bg-gray-50 rounded-lg p-3 sm:p-4">
-                            <p class="text-xs sm:text-sm text-gray-500 mb-1">변환 결과</p>
+                            <p class="text-xs sm:text-sm text-gray-500 mb-1">변환 결과 (Result)</p>
                             <p class="text-base sm:text-lg font-semibold text-gray-900">{{ timestampResult }}</p>
                         </div>
                     </transition>
@@ -81,7 +87,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2" />
                     </svg>
-                    날짜를 Timestamp로 변환
+                    <span class="block sm:hidden">Date to Timestamp</span>
+                    <span class="hidden sm:block">날짜를 Timestamp로 변환 (Date to Timestamp)</span>
                 </h2>
                 <div class="space-y-3 sm:space-y-4">
                     <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
@@ -89,7 +96,7 @@
                             class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm" />
                         <button @click="convertDateToTimestamp"
                             class="w-full sm:w-auto px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
-                            변환
+                            Convert
                         </button>
                     </div>
                     <transition enter-active-class="transition-all duration-300 ease-out"
@@ -99,7 +106,7 @@
                         leave-from-class="opacity-100 transform translate-y-0"
                         leave-to-class="opacity-0 transform translate-y-2">
                         <div v-if="dateResult" class="bg-gray-50 rounded-lg p-3 sm:p-4">
-                            <p class="text-xs sm:text-sm text-gray-500 mb-1">변환 결과</p>
+                            <p class="text-xs sm:text-sm text-gray-500 mb-1">변환 결과 (Result)</p>
                             <p class="text-base sm:text-lg font-semibold font-mono text-gray-900">{{ dateResult }}</p>
                         </div>
                     </transition>
@@ -115,22 +122,109 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Unix Timestamp란?
+                Unix Timestamp란? (What is Unix Timestamp?)
             </h2>
             <div class="text-gray-600 space-y-3 sm:space-y-4">
                 <p class="text-sm sm:text-base">
                     Unix Timestamp는 1970년 1월 1일 00:00:00 UTC부터 경과한 시간을 초 단위로 나타낸 값입니다.
                     개발자들이 시간을 다룰 때 자주 사용하며, 데이터베이스나 API에서 시간을 저장하고 전송하는 데 널리 활용됩니다.
                 </p>
+                <p class="text-sm sm:text-base">
+                    (Unix Timestamp is the number of seconds elapsed since January 1, 1970 00:00:00 UTC. It's widely
+                    used by developers for handling time in databases and APIs)
+                </p>
 
                 <div class="bg-gray-50 rounded-lg p-3 sm:p-4">
-                    <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2">주요 사용 사례</h3>
-                    <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-600">
-                        <li>서버 로그의 시간 기록</li>
-                        <li>데이터베이스의 생성일/수정일 저장</li>
-                        <li>API 응답의 시간 정보</li>
-                        <li>시스템 간 시간 동기화</li>
-                    </ul>
+                    <h3 class="text-base sm:text-xl font-semibold text-gray-900 mb-4">Common Use Cases</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                        <div
+                            class="bg-white rounded-lg p-3 sm:p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div
+                                    class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="text-sm sm:text-base font-semibold text-gray-900 truncate">
+                                        서버 로그의 시간 기록
+                                    </h4>
+                                    <p class="text-xs sm:text-sm text-gray-500 mt-0.5">
+                                        Server logs
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-lg p-3 sm:p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div
+                                    class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 7v10c0 2 1.5 3 3 3h10c1.5 0 3-1 3-3V7c0-2-1.5-3-3-3H7c-1.5 0-3 1-3 3z" />
+                                    </svg>
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="text-sm sm:text-base font-semibold text-gray-900 truncate">
+                                        데이터베이스의 생성일/수정일 저장
+                                    </h4>
+                                    <p class="text-xs sm:text-sm text-gray-500 mt-0.5">
+                                        Database timestamps
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-lg p-3 sm:p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div
+                                    class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="text-sm sm:text-base font-semibold text-gray-900 truncate">
+                                        API 응답의 시간 정보
+                                    </h4>
+                                    <p class="text-xs sm:text-sm text-gray-500 mt-0.5">
+                                        API response timestamps
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-lg p-3 sm:p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
+                            <div class="flex items-center space-x-3 sm:space-x-4">
+                                <div
+                                    class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                    </svg>
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="text-sm sm:text-base font-semibold text-gray-900 truncate">
+                                        시스템 간 시간 동기화
+                                    </h4>
+                                    <p class="text-xs sm:text-sm text-gray-500 mt-0.5">
+                                        System time synchronization
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
